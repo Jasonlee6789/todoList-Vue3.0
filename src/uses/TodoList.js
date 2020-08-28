@@ -10,7 +10,14 @@ function useTodoList() {
     { id: 3, title: "任务三", completed: false },
   ]);
 
-  let allDone = computed(() => todos.every((todo) => todo.completed));
+  let allDone = computed({
+    get() {
+      return todos.every((todo) => todo.completed);
+    },
+    set(newVal) {
+      todos.forEach((todo) => (todo.completed = newVal));
+    },
+  });
 
   const addNewTodo = function() {
     todos.unshift({
