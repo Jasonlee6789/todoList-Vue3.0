@@ -78,10 +78,14 @@ export default {
   name: "Home",
 
   setup() {
-    let { todos } = useTodoList();
+    let { todos, allDone, newTodo, addNewTodo } = useTodoList();
+
     return {
       title: "ToDoList",
       todos,
+      allDone,
+      newTodo,
+      addNewTodo,
     };
   },
 };
