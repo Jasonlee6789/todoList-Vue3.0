@@ -78,7 +78,16 @@ export default {
   name: "Home",
 
   setup() {
-    let { todos, allDone, newTodo, addNewTodo } = useTodoList();
+    let {
+      todos,
+      allDone,
+      newTodo,
+      addNewTodo,
+      filteredTodos,
+
+      visibility,
+      changeVisibility,
+    } = useTodoList();
 
     return {
       title: "ToDoList",
@@ -86,6 +95,10 @@ export default {
       allDone,
       newTodo,
       addNewTodo,
+      filteredTodos,
+
+      visibility,
+      changeVisibility,
     };
   },
 };

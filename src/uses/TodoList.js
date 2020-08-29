@@ -18,6 +18,10 @@ function useTodoList() {
       todos.forEach((todo) => (todo.completed = newVal));
     },
   });
+  // homework
+  let filteredTodos = computed(() =>
+    todos.filter((todo) => (todo = visibility.value))
+  );
 
   const addNewTodo = function() {
     todos.unshift({
@@ -29,11 +33,23 @@ function useTodoList() {
     newTodo.value = "";
   };
 
+  let visibility = ref("all");
+  // homework
+  const changeVisibility = function(status) {
+    visibility.value = status;
+  };
+
   return {
     todos,
     allDone,
+
     newTodo,
     addNewTodo,
+
+    filteredTodos,
+
+    visibility,
+    changeVisibility,
   };
 }
 export default useTodoList;
