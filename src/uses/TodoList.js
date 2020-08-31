@@ -45,11 +45,15 @@ function useTodoList() {
         return todos.filter((todo) => !todo.completed);
       case "completed":
         return todos.filter((todo) => todo.completed);
-        break;
     }
   });
   // todos.filter((todo) => (todo = visibility.value))
 
+  const removeTodo = (todo) => {
+    let index = todos.findIndex((t) => t == todo);
+    console.log("todo", index);
+    todos.splice(index, 1);
+  };
   return {
     todos,
     allDone,
@@ -61,6 +65,8 @@ function useTodoList() {
 
     visibility,
     changeVisibility,
+
+    removeTodo,
   };
 }
 export default useTodoList;
